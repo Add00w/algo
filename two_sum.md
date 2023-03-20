@@ -1,26 +1,3 @@
-# Python
-## Solution 1
-### If the execution time is more important than the space
-```
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hashmap = {}
-        for i in range(len(nums)):
-            complement = target - nums[i]
-            if complement in hashmap:
-                return [i, hashmap[complement]]
-            hashmap[nums[i]] = i
-```
-## Solution 2
-### If the space is more important than execution time
-```
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            for j in range(i + 1, len(nums)):
-                if nums[j] == target - nums[i]:
-                    return [i, j]
-```
 # Dart
 ## Solution 1
 ### If the execution time is more important than the space
@@ -53,4 +30,28 @@ class Solution {
     return [];
   }
 }
+```
+
+# Python
+## Solution 1
+### If the execution time is more important than the space
+```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashmap:
+                return [i, hashmap[complement]]
+            hashmap[nums[i]] = i
+```
+## Solution 2
+### If the space is more important than execution time
+```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[j] == target - nums[i]:
+                    return [i, j]
 ```
