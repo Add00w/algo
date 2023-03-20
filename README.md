@@ -5,5 +5,8 @@
 
 LeetCode is an online problem solving platform. Visit [my profile](https://leetcode.com/Add00w).
 
+### License
+This project is licensed under the [MIT license](https://github.com/Add00w/algo/blob/main/LICENSE.md).
+
 ### Feedback
 Welcome to raise an issue [here](https://github.com/Add00w/algo/issues) if you have any feedback.
