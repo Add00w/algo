@@ -49,9 +49,16 @@ class Solution {
       return;
     }
     image[stackRow][stackCol] = newColor;
+    /// To left
     _dfs(image, stackRow - 1, stackCol, currentColor, newColor);
+
+    /// To right
     _dfs(image, stackRow + 1, stackCol, currentColor, newColor);
+
+    /// To bottom
     _dfs(image, stackRow, stackCol - 1, currentColor, newColor);
+
+    /// To top
     _dfs(image, stackRow, stackCol + 1, currentColor, newColor);
     return;
   }
