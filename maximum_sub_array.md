@@ -44,3 +44,34 @@ class Solution {
 
 ## Dart
 #### Solution (divide and conquer)
+
+*Time complexity: O(n)*
+
+*Space complexity: O(n)*
+```
+class Solution {
+  int maxSubArray(List<int> nums) {
+    List<int> pre = List.from(nums);
+    List<int> suf = List.from(nums);
+    for (int i = 1; i < nums.length; i++) {
+      pre[i] += max(0, pre[i - 1]); // update pre with previous element if positive
+    }
+    for (int i = nums.length - 2; i >= 0; i--) {
+      suf[i] += max(0, suf[i + 1]); // update suf with next element if positive
+    }
+    int maxSubArray(List<int> A, int L, int R) {
+      if (L == R) return A[L]; // base case: single element
+      int mid = (L + R) ~/ 2; // integer division
+      return max(
+        max(
+          maxSubArray(A, L, mid), // left subarray
+          maxSubArray(A, mid + 1, R), // right subarray
+        ),
+        pre[mid] + suf[mid + 1], // cross subarray
+      );
+    }
+
+    return maxSubArray(nums, 0, nums.length - 1);
+  }
+}
+```
