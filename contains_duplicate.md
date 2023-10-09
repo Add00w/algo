@@ -18,7 +18,7 @@ Output: true
 ```
 
 ## Dart
-#### Solution
+#### Solution 1
 
 *Time complexity: O(n)*
 
@@ -28,6 +28,27 @@ class Solution {
   bool containsDuplicate(List<int> nums) {
     final nonDuplicate = nums.toSet();
     return nonDuplicate.length != nums.length;
+  }
+}
+```
+
+#### Solution 2
+
+*Time complexity: O(n log n)*
+
+*Space complexity: O(n) wors case*
+```
+class Solution {
+  bool containsDuplicate(List<int> nums) {
+    nums.sort();
+    int length = nums.length - 1;
+    while (length > 0) {
+      if (nums[length] == nums[length - 1]) {
+        return true;
+      }
+      length -= 1;
+    }
+    return false;
   }
 }
 ```
