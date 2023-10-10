@@ -14,9 +14,9 @@ Output: false
 
 ## Dart
 #### Solution
-*Time complexity:*
+*Time complexity:O(n)*
 
-*Space complexity:*
+*Space complexity:O(n)*
 ```
 class Solution {
 bool isAnagram(String s, String t) {
