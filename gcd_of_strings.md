@@ -27,7 +27,7 @@ str1 and str2 consist of English uppercase letters.
 ## Dart
 #### Solution
 
-*Time complexity: O(logn)* which is worst gcd time complexity
+*Time complexity: O(n+m)* due to the strings concatenation and equality check time.
 
 *Space complexity: O(m+n)* where m and n are the lengths of str1,str2 alternatively,
 
@@ -41,10 +41,113 @@ class Solution {
   }
 }
 ```
+#### Solution 2
+
+*Time complexity: O(n+m)* due to the strings concatenation and equality check time.
+
+*Space complexity: O(m+n)* where m and n are the lengths of str1,str2 alternatively,
+
+```
+class Solution {
+  String gcdOfStrings(String str1, String str2) {
+    if (str1 + str2 != str2 + str1) {
+      return "";
+    }
+    int minLength = min(str1.length, str2.length);
+    int i = minLength;
+    while (i > 0) {
+      if (str1.length % i == 0 && str2.length % i == 0) {
+        break;
+      }
+      i--;
+    }
+    if (i == 0) {
+      return "";
+    }
+    // find the common string (str1[0..i])
+    final gcd = str1.substring(0, i);
+    return gcd;
+  }
+}
+```
+#### Solution 3
+
+*Time complexity: O(n+m)* due to the strings concatenation and equality check time.
+
+*Space complexity: O(m+n)* where m and n are the lengths of str1,str2 alternatively,
+
+```
+class Solution {
+  String gcdOfStrings(String str1, String str2) {
+    if (str1 + str2 != str2 + str1) {
+      return "";
+    }
+    final gcdOfStr1AndStr2Lengths = gcd(str1.length, str2.length);
+    final gcdString = str1.substring(0, gcdOfStr1AndStr2Lengths);
+
+    return gcdString;
+  }
+
+  int gcd(int a, int b) {
+    if (b == 0) {
+      return a;
+    }
+    while (b != 0) {
+      final temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+    // or just use recursion:
+    // return gcd(b, a % b);
+  }
+}
+```
+#### Solution 4
+
+*Time complexity: O(logn)* which is worst gcd time complexity
+
+*Space complexity: O(m+n)* where m and n are the lengths of str1,str2 alternatively,
+
+```
+class Solution {
+  String gcdOfStrings(String str1, String str2) {
+    final gcdOfStr1AndStr2Lengths = gcd(str1.length, str2.length);
+    final candidate = str1.substring(0, gcdOfStr1AndStr2Lengths);
+    if (_isDivisor(str1, candidate) && _isDivisor(str2, candidate)) {
+      return candidate;
+    }
+    return '';
+  }
+
+  int gcd(int a, int b) {
+    if (b == 0) {
+      return a;
+    }
+    while (b != 0) {
+      final temp = b;
+      b = a % b;
+      a = temp;
+    }
+    return a;
+    // or just use recursion:
+    // return gcd(b, a % b);
+  }
+
+  bool _isDivisor(String str, String candidate) {
+    for (int i = 0; i < str.length; i += candidate.length) {
+      if (str.substring(i, i + candidate.length) != candidate) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+```
 
 ## Python
 #### Solution
-*Time complexity: O(logn)* which is worst gcd time complexity
+*Time complexity: O(n+m)* due to the strings concatenation and equality check time.
 
 *Space complexity: O(m+n)* where m and n are the lengths of str1,str2 alternatively,
 ```
