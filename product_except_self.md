@@ -28,9 +28,11 @@ class Solution {
     final answer = List.filled(nums.length, 1, growable: false);
     for (int i = 0; i < nums.length; i++) {
       int product = 1;
+      // calculate prefix product of i
       for (int prev = 0; prev < i; prev++) {
         product *= nums[prev];
       }
+      // calculate suffix product of i
       for (int j = i + 1; j < nums.length; j++) {
         product *= nums[j];
       }
