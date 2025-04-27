@@ -22,7 +22,7 @@ Output: [0,0,9,0,0]
 
 *Space complexity: O(n)*
 
-```
+```dart 
 class Solution {
   List<int> productExceptSelf(List<int> nums) {
     final answer = List.filled(nums.length, 1, growable: false);
@@ -46,7 +46,7 @@ class Solution {
 *Time complexity: O(n)*
 
 *Space complexity: O(n)*
-```
+```dart
 class Solution {
   List<int> productExceptSelf(List<int> nums) {
     final answer = List.filled(nums.length, 1, growable: false);
@@ -73,7 +73,7 @@ class Solution {
 *Space complexity: O(n)*
 
 *But better space and time handling:*
-```
+```dart
 class Solution {
   List<int> productExceptSelf(List<int> nums) {
     final answer = List.filled(nums.length, 1, growable: false);

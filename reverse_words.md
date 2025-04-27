@@ -31,7 +31,7 @@ Explanation: You need to reduce multiple spaces between two words to a single sp
 
 *Space complexity: O(n)*
 
-```
+```dart
 class Solution {
   String reverseWords(String s) {
     final sWords = s.split(' ');
@@ -54,7 +54,7 @@ class Solution {
 }
 ```
 
-```
+```dart
 class Solution {
   String reverseWords(String s) {
     final sWords = s.trim().split(RegExp(r'\s+'));
@@ -71,7 +71,7 @@ class Solution {
 }
 ```
 
-```
+```dart
 class Solution {
   String reverseWords(String s) =>
       s.trim().split(RegExp(r'\s+')).reversed.join(' ');
