@@ -22,7 +22,7 @@ Explanation: No triplet exists.
 
 *Space complexity: O(1)*
 
-```
+```dart []
 class Solution {
   bool increasingTriplet(List<int> nums) {
     if (nums.length < 3) return false;
